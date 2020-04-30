@@ -1,0 +1,44 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Prestations index{% endblock %}
+
+{% block container %}
+    <div class="card-body text-center col-lg-9 mx-auto ">
+        <h1 class="mb-4 bienvenue">Liste Prestations</h1>
+        <div class="text-right  col-12">
+            <a href="{{ path('prestations_new') }}" type="submit" class="btn btn-outline-success mt-3 mb-3">Ajouter</a>
+        </div>
+        <table id="liste" class="table table-dark justify-content-center col-12">
+            <thead>
+            <tr>
+                <th class="th-sm text-center">ID
+
+                </th>
+                <th class="th-sm text-center">Nom
+
+                </th>
+                <th class="th-sm text-center action">Action
+
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for prestation in prestations %}
+                <tr class="presta">
+                    <td>{{ prestation.id }}</td>
+                    <td>{{ prestation.Nom }}</td>
+                    <td class="action">
+                        <div class="btn-group btn-group-sm" role="group" aria-label="...">
+                            <a href="{{ path('prestations_show', {'id': prestation.id}) }}" type="button"
+                               class="btn btn-light">Voir</a>
+                            <a href="{{ path('prestations_edit', {'id': prestation.id}) }}" type="button"
+                               class="btn btn-info">Modiffier</a>
+                            {{ include('prestations/_delete_form.html.twig') }}
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

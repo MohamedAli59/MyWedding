@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ asset('assets/css/admin.css') }}">
+    <title>My Wedding connexion</title>
+</head>
+<body>
+<div class="container-fluid p-0">
+    <!-----------------------------------------------HEADER------------------------------------------------------------>
+    <div class="black">
+
+        <div class="col-12 text-center pl-4">
+            <figure class="figure">
+                <h1 class="nomE">MyWeddingEvent</h1>
+            </figure>
+        </div>
+
+
+    </div>
+
+    <!----------------------------------------------------------------------------------------------------------------->
+    <!------------------------------------------------BODY------------------------------------------------------------->
+    <div>
+        <!-----------------------------------------Menu mobile--------------------------------------------------------->
+
+        <!------------------------------------------------------------------------------------------------------------->
+        <!---------------------------------------------Menu------------------------------------------------------------>
+
+        <div class="container-fluid m-0 p-0 ">
+            <div class="row m-0 p-0">
+                <!----------------------------------------------------------------------------------------------------->
+
+
+                <!----------------------------------------Début Container---------------------------------------------->
+
+                <div class="card-body text-center col-lg-5 mt-5 mx-auto" id="container">
+                    <h1 class="mb-4 bienvenue ">BIENVENUE</h1>
+                    <div class="card col-md-8 col-lg-12 col-xl-10 mx-auto">
+                        <form action= "{{ path('security_login') }} " method= "post" >
+                            <div class="mt-5">
+                                <label for="Email"></label>
+                                <input class="co col-10 col-sm-8  col-md-8 col-lg-8 col-xl-8 " type="email" name="_username" id="Email" placeholder="   E-mail">
+                            </div>
+                            <div class="mt-4 mb-3">
+                                <label for="Password"></label>
+                                <input class="co col-10 col-sm-8  col-md-8 col-lg-8 col-xl-8" type="password" name="_password" id="Password" placeholder="   Password">
+                            </div>
+                            <span class="bienvenue mdp">Mot de passe oublié?</span>
+                            <div class="mt-5 mb-5 col-11 col-sm-9  col-md-9 col-lg-9 col-xl-9  mx-auto">
+
+                                <button type="submit" class="co pt-1 pb-1 btn-light btn-block">Connexion</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!----------------------------------------Fin Container------------------------------------------------>
+
+            </div>
+            <!----------------------------------------------END BODY--------------------------------------------------->
+        </div>
+    </div>
+</div>
+<!------------------------------------------------------------------------------------------------------------->
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/a2bab1df4f.js" crossorigin="anonymous"></script>
+</body>
+</html>

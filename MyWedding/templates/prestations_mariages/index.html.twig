@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}PrestationsMariages index{% endblock %}
+
+{% block body %}
+    <h1>PrestationsMariages index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for prestations_mariage in prestations_mariages %}
+            <tr>
+                <td>{{ prestations_mariage.id }}</td>
+                <td>
+                    <a href="{{ path('prestations_mariages_show', {'id': prestations_mariage.id}) }}">show</a>
+                    <a href="{{ path('prestations_mariages_edit', {'id': prestations_mariage.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="2">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('prestations_mariages_new') }}">Create new</a>
+{% endblock %}

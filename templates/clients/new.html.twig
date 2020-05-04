@@ -1,0 +1,111 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}New Clients{% endblock %}
+
+{% block container %}
+
+
+    <div class="card-body text-center col-lg-5 mt-3 mb-5 mx-auto" id="container">
+        <h1 class="mb-4  bienvenue ">Ajouter Client</h1>
+        <div class="card1 pt-4 pb-4">
+            {{ form_start(form) }}
+            <div class="card  col-10 col-sm-10 col-md-6 col-lg-11 col-xl-11  mx-auto cardInfos text-center">
+                <h4 class="font-weight-bold text-left pl-3 pt-2">Infos</h4>
+                <div class="mt-4 row justify-content-center">
+                    <label class="font-weight-bold col-11 col-md-5 col-lg-5 mb-0  pt-2"
+                           for="name">Nom:</label>
+                    <div class="text-center  col-11 col-md-5 col-lg-5">
+                        {{ form_widget(form.Nom) }}
+                    </div>
+                </div>
+                <div class="mt-2 row justify-content-center">
+                    <label class="font-weight-bold col-11 col-md-5 col-lg-5 mb-0  pt-2"
+                           for="prenom">Prénom:</label>
+                    <div class="text-center  col-11 col-md-5 col-lg-5">
+                        {{ form_widget(form.Prenom) }}
+                    </div>
+                </div>
+
+                <div class="mt-2 row justify-content-center">
+                    <label class="font-weight-bold col-11 col-md-5 col-lg-5 mb-0  pt-2"
+                           for="tel">Téléphone:</label>
+                    <div class="text-center  col-11 col-md-5 col-lg-5">
+                        {{ form_widget(form.Telephone) }}
+                    </div>
+                </div>
+                <div class="mt-2 row justify-content-center">
+                    <label class="font-weight-bold col-11 col-md-5 col-lg-5 mb-0  pt-2"
+                           for="email">E-mail:</label>
+                    <div class="text-center  col-11 col-md-5 col-lg-5">
+                        {{ form_widget(form.Email) }}
+                    </div>
+                </div>
+                <div class="mt-2  row justify-content-center">
+                    <label class=" font-weight-bold col-11 col-md-5 col-lg-5 mb-0  pt-2" for="roles">Rôle:</label>
+                    <div class="text-center  col-11 col-md-5 col-lg-5">
+                        {{ form_widget(form.role) }}
+                    </div>
+                </div>
+                <div class="mt-2  row justify-content-center">
+                    <label class=" font-weight-bold col-11 col-md-5 col-lg-5 mb-0  pt-2" for="civil">Civilité:</label>
+                    <div class="text-center  col-11 col-md-5 col-lg-5">
+                        {{ form_widget(form.Civilite) }}
+                    </div>
+                </div>
+                <div class="mt-2 mb-4 row justify-content-center">
+                    <label class=" font-weight-bold col-11 col-md-5 col-lg-5 mb-0  pt-2" for="civil">Mariage:</label>
+                    <div class="text-center  col-11 col-md-5 col-lg-5">
+                        {{ form_widget(form.mariage) }}
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="card mt-5 col-10 col-sm-10 col-md-6 col-lg-11 col-xl-11 mx-auto cardInfos text-center">
+                <h4 class="font-weight-bold text-left pl-3 pt-2">Adresse</h4>
+                <div class="mt-4 row justify-content-center">
+                    <label class="font-weight-bold col-11 col-md-5 col-lg-5 mb-0  pt-2"
+                           for="numero">N°:</label>
+                    <div class="text-center  col-11 col-md-5 col-lg-5">
+                        {{ form_widget(form.adresse.Numero) }}
+                    </div>
+                </div>
+                <div class="mt-2 row justify-content-center">
+                    <label class="font-weight-bold col-11 col-md-5 col-lg-5 mb-0  pt-2"
+                           for="voie">Voie:</label>
+                    <div class="text-center  col-11 col-md-5 col-lg-5">
+                        {{ form_widget(form.adresse.Voie) }}
+                    </div>
+                </div>
+                <div class="mt-2 row justify-content-center">
+                    <label class="font-weight-bold col-11 col-md-5 col-lg-5 mb-0  pt-2"
+                           for="ville">Ville:</label>
+                    <div class="text-center  col-11 col-md-5 col-lg-5">
+                        {{ form_widget(form.adresse.Ville) }}
+                    </div>
+                </div>
+                <div class="mt-2 row justify-content-center">
+                    <label class="font-weight-bold col-11 col-md-5 col-lg-5 mb-0  pt-2"
+                           for="cp">CP:</label>
+                    <div class="text-center  col-11 col-md-5 col-lg-5">
+                        {{ form_widget(form.adresse.Code_Postal) }}
+                    </div>
+                </div>
+                <div class="mt-2 mb-4 row justify-content-center">
+                    <label class="font-weight-bold col-12 col-md-5 col-lg-5 mb-0  pt-2"
+                           for="pays">Pays:</label>
+                    <div class="text-center  col-11 col-md-5 col-lg-5">
+                        {{ form_widget(form.adresse.Pays) }}
+                    </div>
+                </div>
+            </div>
+            <div class="client mt-3 mb-3">
+                <button class="btn btn-dark">{{ button_label|default('Ajouter') }}</button>
+            </div>
+            {{ form_end(form) }}
+            <div class="justify-content-center">
+                <a href="{{ path('clients_index') }}" class="btn btn-dark col-10 col-lg-5">← retour à la liste</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

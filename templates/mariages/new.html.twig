@@ -1,0 +1,48 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}New Mariages{% endblock %}
+
+{% block container %}
+
+    <div class="card-body text-center col-lg-5 mt-3 mb-5 mx-auto" id="container">
+    <h1 class="mb-4 bienvenue ">Ajouter Mariage</h1>
+    <div class="card mt-5 col-10 col-sm-10 col-md-6 col-lg-10 col-xl-10 mx-auto cardInfos">
+        {{ form_start(form) }}
+        <div class="mt-4 row justify-content-center">
+            <label class=" font-weight-bold col-11 col-md-5 col-lg-5 mb-0  pt-2"
+                   for="nomM">Nom du Mariage:</label>
+            <div class="text-center  col-11 col-md-5 col-lg-5">
+                {{ form_widget(form.Nom) }}
+            </div>
+        </div>
+        <div class="mt-4 row justify-content-center">
+            <label class=" font-weight-bold col-11 col-md-5 col-lg-5  mb-0  pt-2"
+                   for="date">Date:</label>
+            <div class=" text-center   col-11 col-md-5 col-lg-5">
+                {{ form_widget(form.Date) }}
+            </div>
+
+        </div>
+        <div class="mt-4 row justify-content-center">
+            <label class=" font-weight-bold col-11 col-md-5 col-lg-5 mb-0   pt-2"
+                   for="lieu">Lieu:</label>
+            <div class="  text-center col-11 col-md-5 col-lg-5">
+                {{ form_widget(form.Lieu) }}
+            </div>
+        </div>
+        <div class="mt-4 row justify-content-center">
+            <label class=" font-weight-bold col-11 col-md-5 col-lg-5 mb-0  pt-2"
+                   for="personnes">Nb de Personnes:</label>
+            <div class=" text-center  col-11 col-md-5 col-lg-5">
+                {{ form_widget(form.NB_Invites) }}
+            </div>
+        </div>
+        <div class="text-right mt-3 mb-3">
+            <button class="btn btn-dark">{{ button_label|default('Ajouter') }}</button>
+        </div>
+        {{ form_end(form) }}
+        <div class="justify-content-center">
+            <a href="{{ path('mariages_index') }}" class="mb-2 btn btn-dark col-10 col-lg-5">← retour à la liste</a>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,128 @@
+.black {
+    background-color: black;
+}
+
+.menu {
+    position: fixed;
+    bottom: 0;
+    z-index: 1000;
+}
+
+.nav {
+    min-height: 800px;
+}
+
+.nav-link {
+    color: white;
+}
+
+
+.nomE {
+    background: -webkit-gradient(linear, left top, left bottom, from(#ff1493), to(#045FB4));
+    background: linear-gradient(to right, #045FB4, #ff1493);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.card {
+    background-color: dimgrey;
+    border-radius: 20px;
+    border: 1px solid black;
+
+}
+
+.card1 {
+    background-color: dimgrey;
+    border-radius: 20px;
+
+}
+
+
+.co {
+    border: 1px solid black;
+    border-radius: 15px;
+    background-color: white;
+}
+
+.mdp {
+    text-decoration: underline;
+}
+
+
+@media screen and (max-width: 991px) {
+    body {
+        background-color: black;
+
+    }
+
+    .bienvenue {
+        color: white;
+    }
+
+    .co {
+        border: 1px solid black;
+    }
+
+    .card {
+        background-color: black;
+    }
+
+    .cardInfos {
+        background-color: white;
+    }
+
+    .card1 {
+        background-color: black;
+    }
+
+    .card2 {
+        background-color: black;
+    }
+}
+
+@media screen and (min-width: 991px) {
+    .client {
+        text-align: right;
+        margin-right: 5%;
+    }
+}
+
+@media screen and (max-width: 760px) {
+    .action, .prenom {
+        display: none;
+    }
+
+
+}
+
+@media screen and (min-width: 760px) {
+    .actionMobile {
+        display: none;
+    }
+
+}
+
+
+/* test jquery */
+
+.panel, #flip {
+    padding: 5px;
+    text-align: center;
+
+}
+
+.panel {
+
+    display: none;
+}
+
+.panel1, #flip1 {
+    padding: 5px;
+    text-align: center;
+
+}
+
+.panel1 {
+
+    display: none;
+}

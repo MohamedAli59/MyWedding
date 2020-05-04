@@ -1,0 +1,35 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Edit Prestations{% endblock %}
+
+{% block container %}
+
+
+    <div class="card-body text-center col-lg-5 mt-3 mx-auto" id="container">
+    <h1 class="mb-4 bienvenue ">Modifier Prestation</h1>
+    <div class="card mt-5 col-10 col-sm-10 col-md-6 col-lg-10 col-xl-10 mx-auto cardInfos">
+        {{ form_start(form) }}
+        <div class="mt-4 row justify-content-center">
+            <label class=" font-weight-bold col-12 col-md-5 col-lg-5 mb-0  pt-2"
+                   for="name">Nom:</label>
+            <div class="text-center  col-11 col-md-5 col-lg-5">
+                {{ form_widget(form.Nom) }}
+            </div>
+        </div>
+        <div class="mt-4 row justify-content-center">
+            <label class=" font-weight-bold col-12 col-md-5 col-lg-5 mb-0  pt-2"
+                   for="descri">Description:</label>
+            <div class="text-center  col-11 col-md-5 col-lg-5">
+                {{ form_widget(form.Description) }}
+            </div>
+        </div>
+
+        <div class="text-right mt-3 mb-3">
+            <button class="btn btn-dark">{{ button_label|default('Modifier') }}</button>
+        </div>
+        {{ form_end(form) }}
+        <div class="justify-content-center">
+            <a href="{{ path('prestations_index') }}" class="mb-2 btn btn-dark col-10 col-lg-5">← retour à la liste</a>
+        </div>
+    </div>
+{% endblock %}

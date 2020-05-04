@@ -1,11 +1,15 @@
-.black {
-    background-color: black;
-}
+
+/*  Menu coté mobile pour qui reste en bas de page et toujours visible */
 
 .menu {
     position: fixed;
     bottom: 0;
     z-index: 1000;
+}
+/*------------------------------------------------------------------------------*/
+
+.black {
+    background-color: black;
 }
 
 .nav {
@@ -16,6 +20,7 @@
     color: white;
 }
 
+/* Nom du site en couleur dégrader pour la page de connexion */
 
 .nomE {
     background: -webkit-gradient(linear, left top, left bottom, from(#ff1493), to(#045FB4));
@@ -23,6 +28,7 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+/*----------------------------------------------------------------------------------------------------*/
 
 .card {
     background-color: dimgrey;
@@ -37,17 +43,20 @@
 
 }
 
-
+/* les input de connexion  */
 .co {
     border: 1px solid black;
     border-radius: 15px;
     background-color: white;
 }
+/*--------------------------------*/
 
 .mdp {
     text-decoration: underline;
 }
 
+
+/* modifications prisent en compte jusqu'à 991 px */
 
 @media screen and (max-width: 991px) {
     body {
@@ -79,14 +88,20 @@
         background-color: black;
     }
 }
+/*--------------------------------------------------------------------------------------------*/
 
+
+/* modifications prisent en compte à partir de 991*/
 @media screen and (min-width: 991px) {
     .client {
         text-align: right;
         margin-right: 5%;
     }
 }
+/*-----------------------------------------------------------------------------------------*/
 
+
+/* modifications prisent en compte jusqu'à  760*/
 @media screen and (max-width: 760px) {
     .action, .prenom {
         display: none;
@@ -95,15 +110,21 @@
 
 }
 
+/*-----------------------------------------------------------------------------------------*/
+
+
+/* modifications prisent en compte à partir de 760*/
 @media screen and (min-width: 760px) {
     .actionMobile {
         display: none;
     }
 
 }
+/*----------------------------------------------------------------------------------------*/
 
 
-/* test jquery */
+
+/* Slider pour ajouter les commentaires */
 
 .panel, #flip {
     padding: 5px;
@@ -115,7 +136,11 @@
 
     display: none;
 }
+/*---------------------------------------------------------------------------------------*/
 
+
+
+ /* Slider pour ajouter les prestations */
 .panel1, #flip1 {
     padding: 5px;
     text-align: center;

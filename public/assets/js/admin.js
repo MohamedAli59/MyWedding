@@ -1,3 +1,4 @@
+/* Slider pour les ajouter les commentaires  et les prestations */
 
 $(document).ready(function () {
     $(".flip").click(function () {
@@ -6,6 +7,9 @@ $(document).ready(function () {
     $(".flip1").click(function () {
         $(".panel1").slideToggle("slow");
     });
+/*--------------------------------------------------------------------------------------------*/
+
+     //  pour qu'au Click de la ligne on est accès au contenu.
 
     if (screen.width <= 760) {
 

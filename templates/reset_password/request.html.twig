@@ -1,0 +1,30 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Reset your password{% endblock %}
+
+{% block container %}
+
+    <div class="card-body text-center col-lg-5 mt-5 mx-auto" id="container">
+    <h1 class="mb-4 bienvenue ">Reset your password</h1>
+    {% for flashError in app.flashes('reset_password_error') %}
+        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+    {% endfor %}
+    <div class="card col-md-8 col-lg-12 col-xl-10 mx-auto">
+        {{ form_start(requestForm) }}
+        <div class="mt-5 justify-content-center">
+            <div class="col-10 col-sm-8  col-md-8 col-lg-8 col-xl-8 mx-auto bienvenue">
+                {{ form_row(requestForm.Email) }}
+            </div>
+            <div class="mt-4 mb-3">
+                <small class="bienvenue text-justify">
+                    Pas de panique ! Remplissez le formulaire ci-dessous et nous vous enverrons par email les
+                    informations pour vous créer un nouveau mot de passe.
+                </small>
+            </div>
+            <div class="mt-5 mb-5 col-11 col-sm-9  col-md-9 col-lg-9 col-xl-9  mx-auto">
+                <button class="btn btn-primary">Réinitialiser votre mot de passe</button>
+            </div>
+            {{ form_end(requestForm) }}
+        </div>
+    </div>
+{% endblock %}

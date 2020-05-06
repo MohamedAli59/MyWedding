@@ -41,16 +41,21 @@
                 <div class="card-body text-center col-lg-5 mt-5 mx-auto" id="container">
                     <h1 class="mb-4 bienvenue ">BIENVENUE</h1>
                     <div class="card col-md-8 col-lg-12 col-xl-10 mx-auto">
-                        <form action= "{{ path('security_login') }} " method= "post" >
+                        <form action="{{ path('security_login') }} " method="post">
                             <div class="mt-5">
                                 <label for="Email"></label>
-                                <input class="co col-10 col-sm-8  col-md-8 col-lg-8 col-xl-8 " type="email" name="_username" id="Email" placeholder="   E-mail">
+                                <input class="co col-10 col-sm-8  col-md-8 col-lg-8 col-xl-8 " type="email"
+                                       name="_username" id="Email" placeholder="   E-mail">
                             </div>
                             <div class="mt-4 mb-3">
                                 <label for="Password"></label>
-                                <input class="co col-10 col-sm-8  col-md-8 col-lg-8 col-xl-8" type="password" name="_password" id="Password" placeholder="   Password">
+                                <input class="co col-10 col-sm-8  col-md-8 col-lg-8 col-xl-8" type="password"
+                                       name="_password" id="Password" placeholder="   Password">
                             </div>
-                            <span class="bienvenue mdp">Mot de passe oublié?</span>
+                            <span class=""></span>
+
+                            <a href="{{ path('app_forgot_password_request') }}" type="button"
+                               class="mdp">Mot de passe oublié?</a>
                             <div class="mt-5 mb-5 col-11 col-sm-9  col-md-9 col-lg-9 col-xl-9  mx-auto">
 
                                 <button type="submit" class="co pt-1 pb-1 btn-light btn-block">Connexion</button>

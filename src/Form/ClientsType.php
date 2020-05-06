@@ -19,7 +19,7 @@ class ClientsType extends AbstractType
             ->add('Prenom')
             ->add('Telephone')
             ->add('Email')
-            //  ->add('Password', PasswordType::class)
+            // ->add('Password', PasswordType::class)
             ->add('Civilite', ChoiceType::class, [
                 'choices' => [
                     'Mariée' => 'Mariée',
@@ -36,7 +36,7 @@ class ClientsType extends AbstractType
             //      ->add('date_update')
             //      ->add('date_delete')
             //      ->add('activate')
-            ->add('mariage', EntityType::class,[
+            ->add('mariage', EntityType::class, [
                 'class' => 'App:Mariages',
                 'multiple' => false, // a user can select only one option per submission
                 'expanded' => false // options will be presented in a <select> element; set this to true, to present the data as checkboxes

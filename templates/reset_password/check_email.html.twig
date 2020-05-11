@@ -3,6 +3,12 @@
 {% block title %}Password Reset Email Sent{% endblock %}
 
 {% block container %}
-    <p>An email has been sent that contains a link that you can click to reset your password. This link will expire in {{ tokenLifetime|date('g') }} hour(s).</p>
-    <p>If you don't receive an email please check your spam folder or <a href="{{ path('app_forgot_password_request') }}">try again</a>.</p>
+<div class="card-body text-center col-lg-5 mt-5 mx-auto" id="container">
+    <h1 class="mb-4 bienvenue ">E-mail de réinitialisation du mot de passe envoyé</h1>
+    <div class="card col-md-8 col-lg-12 col-xl-10 mx-auto pt-3 text-justify">
+    <p class="bienvenue"> Un e-amil a été envoyé avec un lien. Suivez les instructions fournies pour réinitialiser votre mot de passe.<br> Le lien expire dans  {{ tokenLifetime|date('g') }} heure(s).<br>
+    Si Vous n'avez pas reçu votre e-mail vérifiez vos spam ou, veuillez <a class="badge badge-pill badge-info"
+                href="{{ path('app_forgot_password_request') }}">Cliquer ici</a>.</p>
+</div>
+</div>
 {% endblock %}

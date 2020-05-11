@@ -5,7 +5,7 @@
 {% block container %}
 
     <div class="card-body text-center col-lg-5 mt-5 mx-auto" id="container">
-    <h1 class="mb-4 bienvenue ">Reset your password</h1>
+    <h1 class="mb-4 bienvenue ">Réinitialisation du mot de passe</h1>
     {% for flashError in app.flashes('reset_password_error') %}
         <div class="alert alert-danger" role="alert">{{ flashError }}</div>
     {% endfor %}
@@ -22,7 +22,7 @@
                 </small>
             </div>
             <div class="mt-5 mb-5 col-11 col-sm-9  col-md-9 col-lg-9 col-xl-9  mx-auto">
-                <button class="btn btn-primary">Réinitialiser votre mot de passe</button>
+                <button class="btn btn-info">Réinitialiser votre mot de passe</button>
             </div>
             {{ form_end(requestForm) }}
         </div>

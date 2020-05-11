@@ -73,6 +73,11 @@ class Mariages
      */
     private $prestation;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $Budget;
+
 
 
     public function __construct()
@@ -274,6 +279,18 @@ class Mariages
             $this->prestation->removeElement($prestation);
             $prestation->removeMariage($this);
         }
+
+        return $this;
+    }
+
+    public function getBudget(): ?int
+    {
+        return $this->Budget;
+    }
+
+    public function setBudget(?int $Budget): self
+    {
+        $this->Budget = $Budget;
 
         return $this;
     }

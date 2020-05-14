@@ -6,11 +6,26 @@
 
 
 
-
     <div class="card-body text-center col-lg-9 mt-3 mb-5 mx-auto" id="container">
         <h1 class="mb-4 bienvenue  col-12">Voir Mariage</h1>
+        <div class="card mt-5 col-10 col-sm-10 col-md-7 col-lg-12 col-xl-12 mx-auto cardInfos text-center">
+            <h4 class="font-weight-bold text-left pl-3 pt-4 mx-auto">Budget</h4>
+            <div class="row justify-content-around pb-5 mt-3">
+                <div class="card3 col-11 col-md-5 col-lg-5 col-xl-5">
+                    <div class="card-body">
+                        Coût Prestation
+                    </div>
+                </div>
+                <div class="card3 col-11 col-md-5 col-lg-5 col-xl-5">
+                    <div class="card-body">
+                        Budget Mariage <br>
+                        {{ mariage.Budget }} €
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="row">
-            <div class=" col-lg-6 col-xl-6">
+            <div class="col-lg-6 col-xl-6">
                 <div class="card mt-5 col-10 col-sm-10 col-md-7 col-lg-12 col-xl-12 mx-auto cardInfos text-center">
                     <h4 class="font-weight-bold text-left pl-3 pt-2">Infos Général</h4>
                     <div class="mt-4 row">
@@ -97,23 +112,23 @@
                     <h4 class="font-weight-bold text-center pt-2">Prestations</h4>
                     <div class="mt-4 mb-3 mx-auto  col-12">
                         <ul class="list-group">
-                            {% for presta in mariage.prestation %}
-                                <li class="list-group-item">{{ presta.Nom }}</li>
+                            {% for presta in PrestaM %}
+                                <li class="list-group-item">{{ presta.prestation.Nom }}</li>
                             {% endfor %}
                         </ul>
                     </div>
-                    <div class="btn-group btn-group mx-auto  mb-3 col-12 justify-content-end" role="group" aria-label="...">
+                    {{ form_start(form1) }}
+                    <div class="btn-group btn-group mx-auto  mb-3 col-12 justify-content-end" role="group"
+                         aria-label="...">
                         <button type="button" class="btn btn-dark flip1 col-3 col-lg-3"><i
                                     class="fas fa-folder-plus"></i></button>
                     </div>
                     <div class="mb-2">
-                        {{ form_start(form1) }}
                         <fieldset class="panel1">
-                            <ul class="list-group col-11 mx-auto p-0">
-                                <li class="list-group-item text-left"><label
-                                            for="checkbox-nested-1">  {{ form_widget(form1.prestation) }}
-                                    </label></li>
+                            <ul class="tags" data-prototype="{{ form_widget(form1.prestationsMariages.vars.prototype)|e('html_attr') }}">
+                                <li> {{ form_widget(form1.prestationsMariages) }}</li>
                             </ul>
+
                             <button type="submit" class="btn btn-dark mt-3 flip1" name="valider">Valider</button>
                         </fieldset>
                         {{ form_end(form1) }}
@@ -123,7 +138,8 @@
 
         </div>
         <div class="btn-group btn-group-sm mt-4 mb-5  actionMobile" role="group" aria-label="...">
-            <a href="{{ path('mariages_edit', {'id': mariage.id}) }}" type="button" class="btn btn-info text-center pt-2">Modiffier</a>
+            <a href="{{ path('mariages_edit', {'id': mariage.id}) }}" type="button"
+               class="btn btn-info text-center pt-2">Modiffier</a>
             {{ include('mariages/_delete_form.html.twig') }}
         </div>
 

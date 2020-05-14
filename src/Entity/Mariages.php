@@ -73,8 +73,15 @@ class Mariages
      */
     private $prestation;
 
+
+
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\OneToMany(targetEntity=PrestationsMariages::class, mappedBy="mariage",cascade={"persist"})
+     */
+    private $prestationsMariages;
+
+    /**
+     * @ORM\Column(type="decimal", precision=10, scale=2, nullable=true)
      */
     private $Budget;
 
@@ -87,6 +94,7 @@ class Mariages
         $this->date_add = new \DateTime();
         $this->activate = 1;
         $this->prestation = new ArrayCollection();
+        $this->prestationsMariages = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -283,12 +291,44 @@ class Mariages
         return $this;
     }
 
-    public function getBudget(): ?int
+
+    /**
+     * @return Collection|PrestationsMariages[]
+     */
+    public function getPrestationsMariages(): Collection
+    {
+        return $this->prestationsMariages;
+    }
+
+    public function addPrestationsMariage(PrestationsMariages $prestationsMariage): self
+    {
+        if (!$this->prestationsMariages->contains($prestationsMariage)) {
+            $this->prestationsMariages[] = $prestationsMariage;
+            $prestationsMariage->setMariage($this);
+        }
+
+        return $this;
+    }
+
+    public function removePrestationsMariage(PrestationsMariages $prestationsMariage): self
+    {
+        if ($this->prestationsMariages->contains($prestationsMariage)) {
+            $this->prestationsMariages->removeElement($prestationsMariage);
+            // set the owning side to null (unless already changed)
+            if ($prestationsMariage->getMariage() === $this) {
+                $prestationsMariage->setMariage(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getBudget(): ?string
     {
         return $this->Budget;
     }
 
-    public function setBudget(?int $Budget): self
+    public function setBudget(?string $Budget): self
     {
         $this->Budget = $Budget;
 

@@ -53,6 +53,17 @@ class Prestations
      */
     private $mariage;
 
+    /**
+     * @ORM\Column(type="decimal", precision=12, scale=2)
+     */
+    private $Prix;
+
+
+    /**
+     * @ORM\OneToMany(targetEntity=PrestationsMariages::class, mappedBy="prestation")
+     */
+    private $prestationsMariages;
+
 
 
     public function __construct()
@@ -61,6 +72,7 @@ class Prestations
         $this->date_add = new \DateTime();
         $this->activate = 1;
         $this->mariage = new ArrayCollection();
+        $this->prestationsMariages = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -117,6 +129,16 @@ class Prestations
         return $this;
     }
 
+    public function getPrix()
+    {
+        return $this->Prix;
+    }
+
+    public function setPrix($Prix): void
+    {
+        $this->Prix = $Prix;
+    }
+
     public function getDateDelete(): ?\DateTimeInterface
     {
         return $this->date_delete;
@@ -162,6 +184,39 @@ class Prestations
     {
         if ($this->mariage->contains($mariage)) {
             $this->mariage->removeElement($mariage);
+        }
+
+        return $this;
+    }
+
+
+
+    /**
+     * @return Collection|PrestationsMariages[]
+     */
+    public function getPrestationsMariages(): Collection
+    {
+        return $this->prestationsMariages;
+    }
+
+    public function addPrestationsMariage(PrestationsMariages $prestationsMariage): self
+    {
+        if (!$this->prestationsMariages->contains($prestationsMariage)) {
+            $this->prestationsMariages[] = $prestationsMariage;
+            $prestationsMariage->setPrestation($this);
+        }
+
+        return $this;
+    }
+
+    public function removePrestationsMariage(PrestationsMariages $prestationsMariage): self
+    {
+        if ($this->prestationsMariages->contains($prestationsMariage)) {
+            $this->prestationsMariages->removeElement($prestationsMariage);
+            // set the owning side to null (unless already changed)
+            if ($prestationsMariage->getPrestation() === $this) {
+                $prestationsMariage->setPrestation(null);
+            }
         }
 
         return $this;

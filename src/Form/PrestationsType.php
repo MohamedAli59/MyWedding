@@ -12,8 +12,9 @@ class PrestationsType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('Nom')
-            ->add('Description')
+            ->add('nom')
+           // ->add('Prix')
+           // ->add('Description')
             //   ->add('date_add')
             //  ->add('date_update')
             //  ->add('date_delete')

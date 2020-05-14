@@ -5,9 +5,11 @@ namespace App\Controller;
 use App\Entity\Clients;
 use App\Entity\Commentaires;
 use App\Entity\Mariages;
+use App\Entity\PrestationsMariages;
 use App\Form\CommentairesType;
 use App\Form\MariagesType;
 use App\Repository\MariagesRepository;
+use App\Repository\PrestationsMariagesRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -55,7 +57,7 @@ class MariagesController extends AbstractController
     /**
      * @Route("/mariages/{id}", name="mariages_show", methods={"GET","POST"})
      */
-    public function show(Mariages $mariage,Request $request): Response
+     public function show(Mariages $mariage,Request $request): Response
     {
 
         // <----------------------------------- Commentaire ----------------------------------------------------------->
@@ -80,33 +82,43 @@ class MariagesController extends AbstractController
 
         // <----------------------------------- Liste Prestations ----------------------------------------------------->
 
+
         $form1 = $this->createForm(MariagesType::class, $mariage);
         $form1->remove('Nom');
         $form1->remove('Date');
         $form1->remove('Lieu');
         $form1->remove('NB_Invites');
+        $form1->remove('Budget');
         $form1->handleRequest($request);
+
+        //$form1->remove('prestationsMariages');
+        //dd($request);
 
         if ($form1->isSubmitted() && $form1->isValid()) {
             $this->getDoctrine()->getManager()->flush();
             return $this->redirectToRoute('mariages_show', ['id' => $mariage->getid()]);
         }
 
+
+
         //<------------------------------------------------------------------------------------------------------------>
 
 
         $client = $mariage->getClient();
         $commentaire = $mariage->getCommentaire();
+        $PrestaM = $mariage->getPrestationsMariages();
 
         return $this->render('mariages/show.html.twig', [
             'mariage' => $mariage,
             'client' => $client,
             'commentaire' => $commentaire,
             'commentaires' => $commentaires,
+            'PrestaM'=> $PrestaM,
             'form' => $form->createView(),
             'form1' => $form1->createView(),
         ]);
     }
+
 
     /**
      * @Route("/{id}/edit", name="mariages_edit", methods={"GET","POST"})

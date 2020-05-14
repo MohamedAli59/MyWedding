@@ -42,6 +42,11 @@
     border-radius: 20px;
 
 }
+.card3 {
+    background-color: white;
+    border-radius: 20px;
+    border: 1px solid black;
+}
 
 /* les input de connexion  */
 .co {
@@ -106,6 +111,9 @@
 @media screen and (max-width: 760px) {
     .action, .prenom {
         display: none;
+    }
+    .card3{
+        margin-bottom: 5%;
     }
 
 
